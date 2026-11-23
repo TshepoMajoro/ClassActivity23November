@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: black;
+    margin-top: 5vw;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: white;
+    gap: 1vw;
+
+    & label{
+        margin: auto;
+        width: 30vw;
+        text-align: center;
+    }
+
+    & input{
+        border-radius: 2.5vw;
+        margin: auto;
+        width: 30vw;
+        text-align: center;
+        height: 5vh;
+    }
+
+    button{
+        border-radius: 2.5vw;
+        background-color: white;
+        margin: auto;
+        width: 31vw;
+
+        &:hover{
+            background: linear-gradient(to right, white, black);
+            cursor: pointer;
+        }
+    }
+}
+
+p{
+    margin: auto;
+    color: white;
+    text-align: center;
+}

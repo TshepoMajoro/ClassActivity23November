@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springtech.classactivity23november.DTOs.PersonRequest;
 import org.springtech.classactivity23november.DTOs.PersonResponse;
+import org.springtech.classactivity23november.Exceptions.DuplicateResourceException;
 import org.springtech.classactivity23november.Exceptions.ResourceNotFoundException;
 import org.springtech.classactivity23november.Services.PersonService;
 
@@ -41,7 +42,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createPerson(@Valid @RequestBody PersonRequest request) throws ResourceNotFoundException {
+    public ResponseEntity<Void> createPerson(@Valid @RequestBody PersonRequest request) throws DuplicateResourceException {
         service.createPerson(request);
         return ResponseEntity.noContent().build();
     }

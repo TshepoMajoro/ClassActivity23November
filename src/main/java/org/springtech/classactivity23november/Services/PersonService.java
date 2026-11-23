@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springtech.classactivity23november.DTOs.PersonRequest;
 import org.springtech.classactivity23november.DTOs.PersonResponse;
 import org.springtech.classactivity23november.Entities.Person;
+import org.springtech.classactivity23november.Exceptions.DuplicateResourceException;
 import org.springtech.classactivity23november.Exceptions.ResourceNotFoundException;
 import org.springtech.classactivity23november.Repository.PeopleRepository;
 
@@ -62,9 +63,9 @@ public class PersonService {
         repository.save(person);
     }
 
-    public void createPerson(PersonRequest newEntity) throws ResourceNotFoundException {
+    public void createPerson(PersonRequest newEntity) throws DuplicateResourceException {
         if(repository.existsByEmail(newEntity.email())){
-            throw new ResourceNotFoundException("Person resource with email "+newEntity.email()+" does already exists.");
+            throw new DuplicateResourceException("Person resource with email "+newEntity.email()+" does already exists.");
         }
         repository.save(MapToEntity(newEntity));
     }
