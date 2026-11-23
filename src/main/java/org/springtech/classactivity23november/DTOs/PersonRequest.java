@@ -8,5 +8,4 @@ public record PersonRequest(
         String name,
         @NotNull(message = "email is a required field")
         @Email(message = "ensure the email address is valid.")
-        String email) {
-}
+        String email) {}
